@@ -1,7 +1,7 @@
 # Dungeons and Dragons Character Creator
 
-Like to play D&D but are terrible at going through handbooks? What if you don't have enough D6es? <br>
-I encountered the same problems as a youth, and wanted to make a simple and offline tool which would enable me<br>
+Like to play D&D but are terrible at going through handbooks? What if you don't have enough D6s? <br>
+I encountered the same problems (occasionally), and wanted to make a simple and offline tool which would enable me<br>
 to create a character without all the hassle. 
 
 To install, simply download the EXE Production file, and then save it to a directory. Enter that directory, and run the file.<br>
