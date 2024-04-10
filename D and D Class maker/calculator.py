@@ -7,28 +7,28 @@ except ImportError or ModuleNotFoundError:
     import random
 try:
     import datetime
-except ImportError or ModuleNotFound Error:
+except ImportError or ModuleNotFoundError:
     print("Trying to install required module: datetime")
     os.system('python3 -m pip install datetime')
     # Import the required module again for global access
     import datetime
 try:
     from tkinter import *
-except ImportError or ModuleNotFound Error:
+except ImportError or ModuleNotFoundError:
     print("Trying to install required module: tkinter")
     os.system('python3 -m pip install tkinter')
     # Import the required module again for global access
     from tkinter import *
 try:
     from fillpdf import fillpdfs
-except ImportError or ModuleNotFound Error:
+except ImportError or ModuleNotFoundError:
     print("Trying to install required module: fillpdfs")
     os.system('python3 -m pip install fillpdf')
     # Import the required module again for global access
     from fillpdf import fillpdfs
 try:
     import shutil
-except ImportError or ModuleNotFound Error:
+except ImportError or ModuleNotFoundError:
     print("Trying to install required module: shutil")
     os.system('python3 -m pip install shutil')
     # Import the required module again for global access
