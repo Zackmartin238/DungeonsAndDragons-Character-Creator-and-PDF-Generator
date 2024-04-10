@@ -2,7 +2,7 @@
 
 Like to play D&D but are terrible at going through handbooks? What if you don't have enough D6s? <br>
 I encountered the same problem (occasionally), and wanted to make a simple and offline tool which would enable me<br>
-to create a character without all the hassle. *cough* D&D Beyond *cough*
+to create a character without all the hassle. *cough* <a href="https://www.dndbeyond.com/">D&D Beyond</a> *cough*
 
 # Windows Users: 🪟 
 To install, simply download the EXE Production file, and then save it to a directory. Enter that directory, and run the .exe file. You'll be welcomed with a simple gui which will help you make your character. After finishing, it will give you the location of your character.
