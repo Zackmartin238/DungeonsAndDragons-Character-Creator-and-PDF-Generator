@@ -39,6 +39,7 @@ with open('logs.txt', 'a') as file:
     file.write("["+str(datetime.datetime.now())+"] "+"Welcome to the Ultimate D&D Character creator. We've been initialized, and everything has been imported without error. \n")
 
 path = os.getcwd()
+print(path)
 pathToCharacter=str(str(path)+"/character.pdf")
 
 pathToCurrent=str(str(path)+"/characters/TemporaryCharacter.pdf")
@@ -58,8 +59,10 @@ if isTemp == True:
 #create the original screen:
 root = Tk()
 root.title("Welcome to your D&D class Creator!")
-root.state("zoomed")
-
+try: 
+    root.state("zoomed")
+except _tkinter.TclError:
+    None
 
 with open('logs.txt', "a") as file:
     file.write("Tkinter initialized \n")
