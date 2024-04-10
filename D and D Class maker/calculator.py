@@ -1,36 +1,36 @@
 import os
 try:
     import random
-except ImportError:
-    os.system('python -m pip install random')
+except ImportError or ModuleNotFoundError:
+    os.system('python3 -m pip install random')
     # Import the required module again for global access
     import random
 try:
     import datetime
-except ImportError:
+except ImportError or ModuleNotFound Error:
     print("Trying to install required module: datetime")
-    os.system('python -m pip install datetime')
+    os.system('python3 -m pip install datetime')
     # Import the required module again for global access
     import datetime
 try:
     from tkinter import *
-except ImportError:
+except ImportError or ModuleNotFound Error:
     print("Trying to install required module: tkinter")
-    os.system('python -m pip install tkinter')
+    os.system('python3 -m pip install tkinter')
     # Import the required module again for global access
     from tkinter import *
 try:
     from fillpdf import fillpdfs
-except ImportError:
+except ImportError or ModuleNotFound Error:
     print("Trying to install required module: fillpdfs")
-    os.system('python -m pip install fillpdf')
+    os.system('python3 -m pip install fillpdf')
     # Import the required module again for global access
     from fillpdf import fillpdfs
 try:
     import shutil
-except ImportError:
+except ImportError or ModuleNotFound Error:
     print("Trying to install required module: shutil")
-    os.system('python -m pip install shutil')
+    os.system('python3 -m pip install shutil')
     # Import the required module again for global access
     import shutil
 
