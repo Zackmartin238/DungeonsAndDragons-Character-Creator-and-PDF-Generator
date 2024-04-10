@@ -25,6 +25,6 @@ For those of you who are nerds (like me). It simply builds a tkinter loop that t
 
 I want to have more fields, and stuff to fill in for your character. I want to eventually have a better UI too. This may mean that I will migrate from tkinter, which may be a process but well worth it. Also a better file-saving system would be great (e.g. a file browser so you can choose where to put it.). 
 
-And lastly a print button to send to the user's printer
+And lastly a print button to send to the user's printer as well as an option to edit previously made characters.
 
 Enjoy!
