@@ -8,7 +8,7 @@ to create a character without all the hassle. *cough* D&D Beyond *cough*
 To install, simply download the EXE Production file, and then save it to a directory. Enter that directory, and run the .exe file.<br>
 You'll be welcomed with a simple gui which will help you make your character. After finishing, it will give you the location of your character.
 
-# Python Users (AKA MAC + GNU/Linux)
+# Python Users (AKA MAC + GNU/Linux) 🐍
 You should just download the D and D Class Maker folder. Unzip It.  
 <br>Then, you should just be able to run either the Python file or the .sh file! 
 
