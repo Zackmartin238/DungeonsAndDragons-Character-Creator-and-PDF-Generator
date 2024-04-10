@@ -16,7 +16,7 @@ try:
     from tkinter import *
 except ImportError or ModuleNotFoundError:
     print("Trying to install required module: tkinter")
-    os.system('sudo apt install python3-tkinter')
+    os.system('sudo apt install python3-tk')
     # Import the required module again for global access
     from tkinter import *
 try:
