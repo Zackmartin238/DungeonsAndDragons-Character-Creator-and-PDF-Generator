@@ -1,1 +1,1 @@
-sudo python calculator.py &
+sudo python main.py &
