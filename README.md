@@ -15,4 +15,4 @@ you should just be able to run the Python file.
 
 <a href="https://downgit.github.io/#/home?url=https://github.com/Zackmartin238/DungeonsAndDragons-Character-Creator-and-PDF-Generator/tree/main/D%20and%20D%20Class%20maker"> Python Download Link </a>
 
-<p style='font-size:200;'>Don't Forget to Unzip The File! </p>
+<p style='font-size:200; font-color:red'>Don't Forget to Unzip The File! </p>
