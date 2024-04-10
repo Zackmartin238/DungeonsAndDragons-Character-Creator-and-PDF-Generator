@@ -38,7 +38,7 @@ name = 'none'
 with open('logs.txt', 'a') as file:
     file.write("["+str(datetime.datetime.now())+"] "+"Welcome to the Ultimate D&D Character creator. We've been initialized, and everything has been imported without error. \n")
 
-path = os.getcwd()
+path = os.path.abspath(os.getcwd())
 print(path)
 pathToCharacter=str(str(path)+"/character.pdf")
 
