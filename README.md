@@ -8,8 +8,7 @@ To install, simply download the EXE Production file, and then save it to a direc
 You'll be welcomed with a simple gui which will help you make your character. After finishing, it will give you the location of your character.
 
 For Python (AKA Mac/Linux users) you should just download the D and D Class Maker folder. 
-<br>Then, after checking if you have all the dependencies installed <br>
-you should just be able to run the Python file. 
+<br>Then, you should just be able to run the Python file! 
 
 <a href="https://downgit.github.io/#/home?url=https://github.com/Zackmartin238/DungeonsAndDragons-Character-Creator-and-PDF-Generator/tree/main/EXE%20Production"> Windows Download Link</a>
 
