@@ -1,14 +1,38 @@
-import random 
-import datetime
-import math
-from tkinter import *
-import tkinter
-from tkinter import messagebox
-import fillpdf
-from fillpdf import fillpdfs
 import os
-import shutil
-import time
+try:
+    import random
+except ImportError:
+    os.system('python -m pip install random')
+    # Import the required module again for global access
+    import random
+try:
+    import datetime
+except ImportError:
+    print("Trying to install required module: datetime")
+    os.system('python -m pip install datetime')
+    # Import the required module again for global access
+    import datetime
+try:
+    from tkinter import *
+except ImportError:
+    print("Trying to install required module: tkinter")
+    os.system('python -m pip install tkinter')
+    # Import the required module again for global access
+    from tkinter import *
+try:
+    from fillpdf import fillpdfs
+except ImportError:
+    print("Trying to install required module: fillpdfs")
+    os.system('python -m pip install fillpdf')
+    # Import the required module again for global access
+    from fillpdf import fillpdfs
+try:
+    import shutil
+except ImportError:
+    print("Trying to install required module: shutil")
+    os.system('python -m pip install shutil')
+    # Import the required module again for global access
+    import shutil
 
 name = 'none'
 with open('logs.txt', 'a') as file:
@@ -599,13 +623,12 @@ def submit():
         return
     if cLass == "n/a":
         return
-    
-    frame1.destroy()
-    frame2.destroy()
-    frame3.destroy()
-    frame4.destroy()
-    for x in range (10):
-        if cLass in classes[x]:
+    if int(level) >=1 and int(level) <= 20:
+        frame1.destroy()
+        frame2.destroy()
+        frame3.destroy()
+        frame4.destroy()
+        if cLass in classes:
             if int(level) >=1 and int(level) <= 20:
                 create_dnd_character(cLass, race, level)
             else:
@@ -1018,27 +1041,27 @@ def printscores():
 
     st = "Strength:"
     global STR_content
-    STR_content = (st, "(",STR_score,")", STR_mod, STR_modifier)
+    STR_content = (st, STR_score, "(", STR_mod, STR_modifier,")")
     STR_message = Label(frameRESULTS, text=STR_content)
     STR_message.pack(padx="10", side="top")
     de = "Dexterity:"
-    DEX_content = (de, "(",DEX_score, ")",DEX_mod, DEX_modifier)
+    DEX_content = (de, DEX_score, "(",DEX_mod, DEX_modifier, ")",)
     DEX_message = Label(frameRESULTS, text=DEX_content)
     DEX_message.pack(side="top", padx="10", anchor="n")
     co = "Constitution:"
-    CON_content = (co, "(",CON_score, ")",CON_mod, CON_modifier)
+    CON_content = (co, CON_score, "(",CON_mod, CON_modifier,")")
     CON_message = Label(frameRESULTS, text=CON_content)
     CON_message.pack(side="top", padx="10", anchor="n")
     intel = "Inteligence:"
-    INT_content = (intel, "(",INT_score,")", INT_mod, INT_modifier)
+    INT_content = (intel, INT_score, "(",INT_mod, INT_modifier,")")
     INT_message = Label(frameRESULTS, text=INT_content)
     INT_message.pack(side="top", padx="10", anchor="n")
     wis = "Wisdom:"
-    WIS_content = (wis, "(",WIS_score, ")",WIS_mod, WIS_modifier)
+    WIS_content = (wis, WIS_score,"(",WIS_mod, WIS_modifier, ")")
     WIS_message = Label(frameRESULTS, text=WIS_content)
     WIS_message.pack(side="top", padx="10", anchor="n")
     cha = "Charisma:"
-    CHA_content = (cha,"(", CHA_score,")",CHA_mod, CHA_modifier)
+    CHA_content = (cha, CHA_score,"(",CHA_mod, CHA_modifier,")")
     CHA_message = Label(frameRESULTS, text=CHA_content)
     CHA_message.pack(side="top", padx="10", anchor="n")
 
