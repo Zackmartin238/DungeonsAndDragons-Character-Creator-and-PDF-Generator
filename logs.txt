@@ -12,3 +12,4 @@ Tkinter initialized
 Tkinter initialized 
 [2024-04-10 18:09:30.566351] Welcome to the Ultimate D&D Character creator. We've been initialized, and everything has been imported without error. 
 Tkinter initialized 
+Tkinter initialized 

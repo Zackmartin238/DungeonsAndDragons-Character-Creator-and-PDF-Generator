@@ -47,6 +47,7 @@ except ImportError or ModuleNotFoundError:
     print("Trying to install tkinter fonts...")
     os.system("python3 -m pip install tkinter.font")
     import tkinter.font as font
+
 def start_to_make_new_character():
     path = os.path.dirname(os.path.realpath(__file__))
 
@@ -90,6 +91,21 @@ def exit_program():
     yesButton.pack(side="left", padx="5", pady="20")
     noButton.pack(side="right", padx="5", pady="20")
 
+def edit_existing():
+    path = os.path.dirname(os.path.realpath(__file__))
+
+    if 'D and D Class maker' in path:
+        None
+    else:
+        print("Didn't work :(")
+        return
+    createNewCharacterFileLocation = str(path)+"/editExistingCharacter.py"
+    try: 
+        main_window.withdraw()
+        os.system(f'python "{createNewCharacterFileLocation}"')
+        main_window.deiconify()
+    except:
+        os.system(f'python3 "{createNewCharacterFileLocation}"')
 
 
 if __name__ =="__main__":
@@ -115,7 +131,7 @@ if __name__ =="__main__":
     quitButton = Button(buttonFrame, text="Exit Program", bg="white", fg="red", command=exit_program)
     quitButton.pack(side="right", padx="10", pady="20")
 
-    oldCharacterButton = Button(buttonFrame, text="Existing Character", bg="black", fg="white")
+    oldCharacterButton = Button(buttonFrame, text="Existing Character", bg="black", fg="white", command = edit_existing)
     oldCharacterButton.pack( padx="10", pady="20")
 
 

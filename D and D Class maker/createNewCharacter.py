@@ -41,7 +41,10 @@ except ImportError or ModuleNotFoundError:
     # Import the required module again for global access
     import _tkinter
 name = 'none'
-with open('logs.txt', 'a') as file:
+path = os.path.dirname(os.path.realpath(__file__))
+logfile = str(str(path)+"/logs.txt")
+
+with open(logfile, 'a') as file:
     file.write("["+str(datetime.datetime.now())+"] "+"Welcome to the Ultimate D&D Character creator. We've been initialized, and everything has been imported without error. \n")
 
 path = os.path.dirname(os.path.realpath(__file__))
@@ -51,6 +54,7 @@ if 'D and D Class maker' in path:
     print("it works now...")
 else:
     print("Didn't work :(")
+    print("trying cd-ing into the folder directly.")
     exit
     
 pathToCharacter=str(str(path)+"/character.pdf")
@@ -64,7 +68,7 @@ isTemp = os.path.isfile(pathToCurrent)
 
 if isTemp == False:
     newfile = shutil.copyfile(pathToCharacter, pathToCurrent)
-    with open('logs.txt', "a") as file:
+    with open(logfile, "a") as file:
         file.write(f"Temporary File created. Can be found at {pathToCharacter} \n")
 if isTemp == True:
     with open(logfile, "a") as file:
