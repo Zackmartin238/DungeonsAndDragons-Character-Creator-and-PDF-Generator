@@ -61,7 +61,7 @@ root = Tk()
 root.title("Welcome to your D&D class Creator!")
 try: 
     root.state("zoomed")
-except _tkinter.TclError:
+finally:
     None
 
 with open('logs.txt', "a") as file:
