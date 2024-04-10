@@ -48,7 +48,8 @@ path = os.path.dirname(os.path.realpath(__file__))
 print(path)
 
 if 'D and D Class maker' in path:
-    continue
+    print(path)
+    
 else:
     print("Didn't work :(")
     exit
