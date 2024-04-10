@@ -33,7 +33,13 @@ except ImportError or ModuleNotFoundError:
     os.system('python3 -m pip install shutil')
     # Import the required module again for global access
     import shutil
-
+try:
+    import _tkinter
+except ImportError or ModuleNotFoundError:
+    print("Trying to install required module: tkinter")
+    os.system('python3 -m pip install _tkinter')
+    # Import the required module again for global access
+    import _tkinter
 name = 'none'
 with open('logs.txt', 'a') as file:
     file.write("["+str(datetime.datetime.now())+"] "+"Welcome to the Ultimate D&D Character creator. We've been initialized, and everything has been imported without error. \n")
@@ -61,7 +67,7 @@ root = Tk()
 root.title("Welcome to your D&D class Creator!")
 try: 
     root.state("zoomed")
-finally:
+except _tkinter.TclError:
     None
 
 with open('logs.txt', "a") as file:
