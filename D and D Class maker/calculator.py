@@ -45,11 +45,10 @@ with open('logs.txt', 'a') as file:
     file.write("["+str(datetime.datetime.now())+"] "+"Welcome to the Ultimate D&D Character creator. We've been initialized, and everything has been imported without error. \n")
 
 path = os.path.dirname(os.path.realpath(__file__))
-print(path)
 
 if 'D and D Class maker' in path:
     print(path)
-    
+    print("it works now...")
 else:
     print("Didn't work :(")
     exit
