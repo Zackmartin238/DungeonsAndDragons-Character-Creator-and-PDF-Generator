@@ -4,19 +4,24 @@ def quit_program():
     quit
 def select_file():
     path = os.path.dirname(os.path.realpath(__file__)),
+    global currentFile
     currentFile = tkinter.filedialog.askopenfilename(
         parent=mainWindow,
         initialdir= str(path),
         title='Choose file',
         filetypes=[('PDF files', '*.pdf')],
     )
-
+    
+    viewCharacter()
+    
+def viewCharacter():
+    webbrowser.open_new(currentFile)
 if __name__ == "__main__":
     from tkinter import *
     import tkinter.filedialog
     import os
-
-    
+    import webbrowser
+    global currentFile
     mainWindow = Tk()
     mainWindow.title("Edit Existing Character")
 
