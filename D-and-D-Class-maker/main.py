@@ -55,14 +55,8 @@ def start_to_make_new_character():
         print(path)
         print("it works now...")
     else:
-        import sys
-        print(sys.path())
-        path = sys.path
-        if 'Dungeons' in path:
-            print("ig it worked on the second try?")
-        else:
-            quit
-        
+        print("Didn't work :(")
+    
     createNewCharacterFileLocation = str(path)+"\createNewCharacter.py"
     try: 
         main_window.withdraw()
@@ -103,13 +97,8 @@ def edit_existing():
     if 'D and D Class maker' in path:
         None
     else:
-        import sys
-        print(sys.path())
-        path = sys.path
-        if 'Dungeons' in path:
-            print("ig it worked on the second try?")
-        else:
-            quit
+        print("Didn't work :(")
+        
     createNewCharacterFileLocation = str(path)+"/editExistingCharacter.py"
     try: 
         main_window.withdraw()
