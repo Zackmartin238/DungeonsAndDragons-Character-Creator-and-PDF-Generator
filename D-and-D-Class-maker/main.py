@@ -103,8 +103,13 @@ def edit_existing():
     if 'D and D Class maker' in path:
         None
     else:
-        print("Didn't work :(")
-        return
+        import sys
+        print(sys.path())
+        path = sys.path
+        if 'Dungeons' in path:
+            print("ig it worked on the second try?")
+        else:
+            quit
     createNewCharacterFileLocation = str(path)+"/editExistingCharacter.py"
     try: 
         main_window.withdraw()
