@@ -26,7 +26,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: /Website/index.html
+      url: https://github.com/Zackmartin238/DungeonsAndDragons-Character-Creator-and-PDF-Generator/blob/main/Website/index.html
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
