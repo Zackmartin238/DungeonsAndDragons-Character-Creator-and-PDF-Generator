@@ -46,12 +46,15 @@ def select_file():
         None
     able_to_print_char = False
 
+
 def print_using_printer():
     if os.name == "nt":
         os.startfile(currentFile)
     if os.name != "nt":
-        lpr = subprocess.Popen("/usr/bin/lpr", stdin=subprocess.PIPE)
-        lpr.stdin.write(currentFile)
+        print("Hello, it looks like your using a non-Windows os. You'll need to print this one through your browser")
+        import webbrowser
+        webbrowser.open_new(currentFile)
+        
 
 def view_page(page):
     global label
