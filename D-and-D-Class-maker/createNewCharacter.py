@@ -49,13 +49,7 @@ with open(logfile, 'a') as file:
 
 path = os.path.dirname(os.path.realpath(__file__))
 
-if 'D and D Class maker' in path:
-    print(path)
-    print("it works now...")
-else:
-    print("Didn't work :(")
-    print("trying cd-ing into the folder directly.")
-    exit
+
     
 pathToCharacter=str(str(path)+"/character.pdf")
 
