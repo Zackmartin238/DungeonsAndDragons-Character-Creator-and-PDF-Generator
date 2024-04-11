@@ -55,6 +55,7 @@ def start_to_make_new_character():
         print(path)
         print("it works now...")
     else:
+        print(path)
         print("Didn't work :(")
     exit
     createNewCharacterFileLocation = str(path)+"\createNewCharacter.py"
