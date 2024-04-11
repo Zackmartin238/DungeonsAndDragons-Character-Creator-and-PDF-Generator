@@ -7,3 +7,8 @@ Temp file Already Exists
 Temp file Already Exists 
 [2024-04-10 18:50:31.673965] Welcome to the Ultimate D&D Character creator. We've been initialized, and everything has been imported without error. 
 Temp file Already Exists 
+[2024-04-11 12:13:06.048009] Welcome to the Ultimate D&D Character creator. We've been initialized, and everything has been imported without error. 
+Temp file Already Exists 
+[2024-04-11 12:13:09.547064] Welcome to the Ultimate D&D Character creator. We've been initialized, and everything has been imported without error. 
+Temp file Already Exists 
+Wrote changes to temp file 

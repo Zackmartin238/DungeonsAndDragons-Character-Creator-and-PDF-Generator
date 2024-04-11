@@ -113,12 +113,16 @@ def save_and_exit():
 
 
 def saveChanges():
-    global changes, entry_vars
+    global changes, entry_vars, currentFile
+    try:
+        changes = pdf.get_form_fields(currentFile, sort=True, page_number=page)
+        for field, value in changes.items():
+            changes[field] = entry_vars[field].entry_var.get()
 
+    except:
+        None
     # Update the changes dictionary with the current values in entry_var
-    for field, value in changes.items():
-        changes[field] = entry_vars[field].entry_var.get()
-        print(changes[field])
+
 
     # Write the updated changes dictionary to the PDF file
     writeChangesToFile()
@@ -127,7 +131,10 @@ def saveChanges():
 
 
 def writeChangesToFile():
-    pdf.write_fillable_pdf(currentFile, currentFile, changes)
+    try: 
+        pdf.write_fillable_pdf(currentFile, currentFile, changes)
+    except:
+        None
     return
 
 
