@@ -34,10 +34,11 @@ def select_file():
     able_to_print_char = True
     page = StringVar(topframe)
     page.set('1')
+    setup_scrollable_canvas()
     view_page(page)
     viewCharacter(1)
-    page = OptionMenu(topframe, page, *x, command=viewCharacter)
-    page.pack(in_=topframe, side=LEFT)
+    pagemenu = OptionMenu(topframe, page, *x, command=viewCharacter)
+    pagemenu.pack(in_=topframe, side=LEFT)
     if able_to_print_char == True:
         printButton = Button(topframe, text="Print file to Printer", command=print_using_printer)
         printButton.pack(in_=topframe, side=LEFT)
@@ -57,58 +58,72 @@ def view_page(page):
     label = Label(topframe, text="Page")
     label.pack(in_=topframe, side=LEFT)
 
+def setup_scrollable_canvas():
+    global canvas, scrollbar
+    canvas = Canvas(mainWindow)
+    canvas.pack(side="left", fill="both", expand=True)
+
+    scrollbar = Scrollbar(mainWindow, orient="vertical", command=canvas.yview)
+    scrollbar.pack(side="right", fill="y")
+
+    canvas.configure(yscrollcommand=scrollbar.set)
+
+    canvas.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
+    canvas.bind_all("<MouseWheel>", lambda e: canvas.yview_scroll(int(-1*(e.delta/120)), "units"))
+
 def viewCharacter(page):
-    global able_to_print_char
-    global label
-    global changes
-    changes = pdf.get_form_fields(currentFile, sort=True, page_number=int(page))
+    global midframe, changes, canvas, entry_vars
+
+    changes = pdf.get_form_fields(currentFile, sort=True, page_number=page)
     if int(page) == 1:
-        message.destroy()
+        message.destroy()  # Assuming message is a global variable
         midframe = Frame(canvas)
         canvas.create_window((0, 0), window=midframe, anchor="nw")
-        global player_name_var
-        global char_name_var
-        # Adding Player Name and Character Name fields
-        label_player_name = Label(midframe, text="Player Name")
-        label_player_name.grid(row=0, column=0, padx="8")
-        player_name_var = StringVar(value=changes.get('PlayerName', ''))
-        entry_player_name = Entry(midframe, textvariable=player_name_var, width=30)
-        entry_player_name.grid(row=0, column=1, padx="8")
-
-        label_char_name = Label(midframe, text="Character Name")
-        label_char_name.grid(row=1, column=0, padx="8")
-        char_name_var = StringVar(value=changes.get('CharacterName', ''))
-        entry_char_name = Entry(midframe, textvariable=char_name_var, width=30)
-        entry_char_name.grid(row=1, column=1, padx="8")
-
-        # Populating other fields based on the provided dictionary
         row_counter = 2
+        entry_vars = {}  # Store entry_vars for each field
         for field, value in changes.items():
-            if field not in ['PlayerName', 'CharacterName']:
-                label = Label(midframe, text=field)
-                label.grid(row=row_counter, column=0, padx="8")
+            label = Label(midframe, text=field)
+            label.grid(row=row_counter, column=0, padx="10", sticky="e")  # Align labels to the right
+            entry_var = StringVar(value=value)  # Initialize with the initial value
+            entry = Entry(midframe, textvariable=entry_var, width=30)
+            entry.grid(row=row_counter, column=1, padx="10", sticky="w")  # Align entry fields to the left
+            # Store the StringVar object directly within the Entry widget
+            entry.entry_var = entry_var
+            entry_vars[field] = entry  # Store entry widget for each field
+            row_counter += 1
 
-                entry_var = StringVar(value=value)
-                entry = Entry(midframe, textvariable=entry_var, width=30)
-                entry.grid(row=row_counter, column=1, padx="8")
-
-                row_counter += 1
-
+        # Update canvas scroll region after changes
         canvas.update_idletasks()
         canvas.configure(scrollregion=canvas.bbox("all"), yscrollcommand=scrollbar.set)
+
+
+
+
+
+# Other functions and the main function remain unchanged
 
 
 
 def save_and_quit():
     saveChanges()
     reset()
+def save_and_exit():
+    saveChanges()
+    quit_program()
 
 
 def saveChanges():
-    global changes
-    changes["PlayerName"] = player_name_var.get()
-    changes["CharacterName"] = char_name_var.get()
+    global changes, entry_vars
+
+    # Update the changes dictionary with the current values in entry_var
+    for field, value in changes.items():
+        changes[field] = entry_vars[field].entry_var.get()
+        print(changes[field])
+
+    # Write the updated changes dictionary to the PDF file
     writeChangesToFile()
+
+
 
 
 def writeChangesToFile():
@@ -128,7 +143,7 @@ def main():
     topframe = Frame(mainWindow)
     topframe.pack(fill="x")
 
-    exitButton = Button(topframe, text="Go Back to Main", command=quit_program)
+    exitButton = Button(topframe, text="Go Back to Main", command=save_and_exit)
     exitButton.pack(in_=topframe, side=LEFT)
 
     messageFrame = Frame(mainWindow)
@@ -138,27 +153,17 @@ def main():
     message = Message(messageFrame, text="Choose a file to edit", width="200")
     message.pack(pady="20")
 
-    global canvas
-    canvas = Canvas(mainWindow)
-    canvas.pack(side="left", fill="both", expand=True)
 
-    global scrollbar
-    scrollbar = Scrollbar(mainWindow, orient="vertical", command=canvas.yview)
-    scrollbar.pack(side="right", fill="y")
-
-    canvas.configure(yscrollcommand=scrollbar.set)
-
-    canvas.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
-
-    global midframe
-    midframe = Frame(canvas)
-    canvas.create_window((0, 0), window=midframe, anchor="nw")
 
     global FileSelectButton
     FileSelectButton = Button(topframe, text="Select File to edit", command=select_file)
     FileSelectButton.pack(in_=topframe, side=LEFT)
-    mainloop()
+    Save_changes_button = Button(topframe, text="Save Changes", command=saveChanges)
+    Save_changes_button.pack(in_=topframe, side=RIGHT)
 
+    saveAndQuitButton = Button(topframe, text="Save And Edit Another", command=save_and_quit)
+    saveAndQuitButton.pack(in_=topframe, side=RIGHT)
+    mainloop()
 
 
 
