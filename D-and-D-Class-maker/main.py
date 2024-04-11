@@ -52,10 +52,9 @@ def start_to_make_new_character():
     path = os.path.dirname(os.path.realpath(__file__))
 
     if 'D and D Class maker' in path:
-        print(path)
-        print("it works now...")
+        None
     else:
-        print("Didn't work :(")
+        None
     
     createNewCharacterFileLocation = str(path)+"\createNewCharacter.py"
     try: 
@@ -97,7 +96,7 @@ def edit_existing():
     if 'D and D Class maker' in path:
         None
     else:
-        print("Didn't work :(")
+        None
         
     createNewCharacterFileLocation = str(path)+"/editExistingCharacter.py"
     try: 
