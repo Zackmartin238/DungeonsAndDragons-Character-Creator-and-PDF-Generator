@@ -8,7 +8,7 @@ to create a character without all the hassle. *cough* <a href="https://www.dndbe
 To install, simply download the EXE Production file, and then save it to a directory. Enter that directory, and run the .exe file. You'll be welcomed with a simple gui which will help you make your character. After finishing, it will give you the location of your character.
 
 # Python Users (AKA MAC + GNU/Linux) 🐍
-You should just download the D and D Class Maker folder. Unzip It. Then, you should just be able to run either the Python file or the .sh file! You should have python installed and on your path!
+You should just download the D and D Class Maker folder. Unzip It. Then, you should just be able to run the Main.py file! You should have python installed and on your path!
 
 <a href="https://downgit.github.io/#/home?url=https://github.com/Zackmartin238/DungeonsAndDragons-Character-Creator-and-PDF-Generator/tree/main/EXE%20Production"> Windows Download Link</a>
 
