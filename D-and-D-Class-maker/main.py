@@ -55,9 +55,14 @@ def start_to_make_new_character():
         print(path)
         print("it works now...")
     else:
-        print(path)
-        print("Didn't work :(")
-    exit
+        import sys
+        print(sys.path())
+        path = sys.path
+        if 'Dungeons' in path:
+            print("ig it worked on the seconf try?")
+        else:
+            quit
+        
     createNewCharacterFileLocation = str(path)+"\createNewCharacter.py"
     try: 
         main_window.withdraw()
