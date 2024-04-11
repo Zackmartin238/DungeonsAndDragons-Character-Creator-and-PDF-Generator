@@ -59,7 +59,7 @@ def start_to_make_new_character():
     createNewCharacterFileLocation = str(path)+"createNewCharacter.py"
     try: 
         main_window.withdraw()
-        os.system(f'python "{createNewCharacterFileLocation}"')
+        os.system(f'python "/createNewCharacter.py"')
         main_window.deiconify()
     except:
         os.system(f'python3 "{createNewCharacterFileLocation}"')
