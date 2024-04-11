@@ -98,8 +98,46 @@ def viewCharacter(page):
         # Update canvas scroll region after changes
         canvas.update_idletasks()
         canvas.configure(scrollregion=canvas.bbox("all"), yscrollcommand=scrollbar.set)
+    if int(page) == 2:
+        message.destroy()  # Assuming message is a global variable
+        midframe = Frame(canvas)
+        canvas.create_window((0, 0), window=midframe, anchor="nw")
+        row_counter = 2
+        entry_vars = {}  # Store entry_vars for each field
+        for field, value in changes.items():
+            label = Label(midframe, text=field)
+            label.grid(row=row_counter, column=0, padx="10", sticky="e")  # Align labels to the right
+            entry_var = StringVar(value=value)  # Initialize with the initial value
+            entry = Entry(midframe, textvariable=entry_var, width=30)
+            entry.grid(row=row_counter, column=1, padx="10", sticky="w")  # Align entry fields to the left
+            # Store the StringVar object directly within the Entry widget
+            entry.entry_var = entry_var
+            entry_vars[field] = entry  # Store entry widget for each field
+            row_counter += 1
 
+        # Update canvas scroll region after changes
+        canvas.update_idletasks()
+        canvas.configure(scrollregion=canvas.bbox("all"), yscrollcommand=scrollbar.set)
+    if int(page) == 3:
+        message.destroy()  # Assuming message is a global variable
+        midframe = Frame(canvas)
+        canvas.create_window((0, 0), window=midframe, anchor="nw")
+        row_counter = 2
+        entry_vars = {}  # Store entry_vars for each field
+        for field, value in changes.items():
+            label = Label(midframe, text=field)
+            label.grid(row=row_counter, column=0, padx="10", sticky="e")  # Align labels to the right
+            entry_var = StringVar(value=value)  # Initialize with the initial value
+            entry = Entry(midframe, textvariable=entry_var, width=30)
+            entry.grid(row=row_counter, column=1, padx="10", sticky="w")  # Align entry fields to the left
+            # Store the StringVar object directly within the Entry widget
+            entry.entry_var = entry_var
+            entry_vars[field] = entry  # Store entry widget for each field
+            row_counter += 1
 
+        # Update canvas scroll region after changes
+        canvas.update_idletasks()
+        canvas.configure(scrollregion=canvas.bbox("all"), yscrollcommand=scrollbar.set)
 
 
 
