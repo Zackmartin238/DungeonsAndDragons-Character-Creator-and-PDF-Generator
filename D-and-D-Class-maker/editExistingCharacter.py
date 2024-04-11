@@ -144,7 +144,7 @@ def main():
     topframe = Frame(mainWindow)
     topframe.pack(fill="x")
 
-    exitButton = Button(topframe, text="Go Back to Main", command=save_and_exit)
+    exitButton = Button(topframe, text="Go Back to Main", command=quit_program)
     exitButton.pack(in_=topframe, side=LEFT)
 
     messageFrame = Frame(mainWindow)
