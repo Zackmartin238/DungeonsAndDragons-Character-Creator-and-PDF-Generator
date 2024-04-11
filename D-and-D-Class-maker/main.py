@@ -59,7 +59,7 @@ def start_to_make_new_character():
         print(sys.path())
         path = sys.path
         if 'Dungeons' in path:
-            print("ig it worked on the seconf try?")
+            print("ig it worked on the second try?")
         else:
             quit
         
