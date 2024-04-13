@@ -1,54 +1,19 @@
 import os
 import sys
 import subprocess
-# Define a function to install missing modules
-def install_module(module_name):
-    print(f"Trying to install required module: {module_name}")
-    os.system(f'{sys.executable} -m pip install {module_name}')
+from BetterImports import *
 
-# Try to import modules, and if they are not found, install them
-try:
-    import random
-except ImportError or ModuleNotFoundError:
-    install_module("random")
-    import random
+Import('random')
+Import('datetime')
+Import('_tkinter')
+Import('tkinter')
+Import('fillpdf')
+Import('shutil')
+Import('tkinter.font')
 
-try:
-    import datetime
-except ImportError or ModuleNotFoundError:
-    install_module("datetime")
-    import datetime
-
-try:
-    from tkinter import *
-except ImportError or ModuleNotFoundError:
-    install_module("python3-tk")
-    from tkinter import *
-
-try:
-    from fillpdf import fillpdfs
-except ImportError or ModuleNotFoundError:
-    install_module("fillpdf")
-    from fillpdf import fillpdfs
-
-try:
-    import shutil
-except ImportError or ModuleNotFoundError:
-    install_module("shutil")
-    import shutil
-
-try:
-    import _tkinter
-except ImportError or ModuleNotFoundError:
-    install_module("_tkinter")
-    import _tkinter
-
-try:
-    import tkinter.font as font
-except ImportError or ModuleNotFoundError:
-    install_module("tkinter.font")
-    import tkinter.font as font
-
+import tkinter as Tk
+from tkinter import *
+import tkinter.font as font
 
 
 
