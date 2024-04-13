@@ -15,8 +15,7 @@ import tkinter as Tk
 from tkinter import *
 import tkinter.font as font
 
-
-
+print("Everything Installed. Starting Program :)")
 
 def start_to_make_new_character():
     try:
