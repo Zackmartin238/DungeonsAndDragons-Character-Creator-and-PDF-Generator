@@ -1,68 +1,78 @@
 import os
+import sys
+import subprocess
+# Define a function to install missing modules
+def install_module(module_name):
+    print(f"Trying to install required module: {module_name}")
+    os.system(f'{sys.executable} -m pip install {module_name}')
+
+# Try to import modules, and if they are not found, install them
 try:
     import random
 except ImportError or ModuleNotFoundError:
-    os.system('python3 -m pip install random')
-    # Import the required module again for global access
+    install_module("random")
     import random
+
 try:
     import datetime
 except ImportError or ModuleNotFoundError:
-    print("Trying to install required module: datetime")
-    os.system('python3 -m pip install datetime')
-    # Import the required module again for global access
+    install_module("datetime")
     import datetime
+
 try:
     from tkinter import *
 except ImportError or ModuleNotFoundError:
-    print("Trying to install required module: tkinter")
-    os.system('sudo apt install python3-tk')
-    # Import the required module again for global access
+    install_module("python3-tk")
     from tkinter import *
+
 try:
     from fillpdf import fillpdfs
 except ImportError or ModuleNotFoundError:
-    print("Trying to install required module: fillpdfs")
-    os.system('python3 -m pip install fillpdf')
-    # Import the required module again for global access
+    install_module("fillpdf")
     from fillpdf import fillpdfs
+
 try:
     import shutil
 except ImportError or ModuleNotFoundError:
-    print("Trying to install required module: shutil")
-    os.system('python3 -m pip install shutil')
-    # Import the required module again for global access
+    install_module("shutil")
     import shutil
+
 try:
     import _tkinter
 except ImportError or ModuleNotFoundError:
-    print("Trying to install required module: tkinter")
-    os.system('python3 -m pip install _tkinter')
-    # Import the required module again for global access
+    install_module("_tkinter")
     import _tkinter
 
-try: 
+try:
     import tkinter.font as font
 except ImportError or ModuleNotFoundError:
-    print("Trying to install tkinter fonts...")
-    os.system("python3 -m pip install tkinter.font")
+    install_module("tkinter.font")
     import tkinter.font as font
+
+
+
+
 
 def start_to_make_new_character():
-    path = os.path.dirname(os.path.realpath(__file__))
-
-    if 'D and D Class maker' in path:
-        None
-    else:
-        None
-    
-    createNewCharacterFileLocation = str(path)+"/createNewCharacter.py"
-    try: 
+    try:
+        path = os.getcwd()
+        createNewCharacterFileLocation = os.path.join(path, "createNewCharacter.py")
         main_window.withdraw()
-        os.system(f'python "{createNewCharacterFileLocation}"')
+
+        # Determine which Python command to use
+        python_command = "python3" if subprocess.run(["which", "python3"], capture_output=True, text=True).stdout.strip() else "python"
+
+        check = subprocess.run([python_command, createNewCharacterFileLocation], capture_output=True, text=True)
+        check
+    except FileNotFoundError:
+        print("Script not found")
+        # Handle the case where the script is not found
+    finally:
         main_window.deiconify()
-    except:
-        os.system(f'python3 "{createNewCharacterFileLocation}"')
+
+
+
+        
 
 def existing_character():
     try: 
@@ -91,20 +101,22 @@ def exit_program():
     noButton.pack(side="right", padx="5", pady="20")
 
 def edit_existing():
-    path = os.path.dirname(os.path.realpath(__file__))
+    try:
+        path = os.getcwd()
 
-    if 'D and D Class maker' in path:
-        None
-    else:
-        None
-        
-    createNewCharacterFileLocation = str(path)+"/editExistingCharacter.py"
-    try: 
+        createNewCharacterFileLocation = os.path.join(path, "editExistingCharacter.py")
         main_window.withdraw()
-        os.system(f'python "{createNewCharacterFileLocation}"')
+
+        # Determine which Python command to use
+        python_command = "python3" if subprocess.run(["which", "python3"], capture_output=True, text=True).stdout.strip() else "python"
+
+        check = subprocess.run([python_command, createNewCharacterFileLocation], capture_output=True, text=True)
+        check
+    except FileNotFoundError:
+        print("Script not found")
+        # Handle the case where the script is not found
+    finally:
         main_window.deiconify()
-    except:
-        os.system(f'python3 "{createNewCharacterFileLocation}"')
 
 
 if __name__ =="__main__":

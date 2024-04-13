@@ -207,21 +207,20 @@ def main():
     saveAndQuitButton.pack(in_=topframe, side=RIGHT)
     mainloop()
 
-
+def install_module(module_name):
+    print(f"Trying to install required module: {module_name}")
+    os.system(f'{sys.executable} -m pip install {module_name}')
 
 if __name__ == "__main__":
     from tkinter import *
     import tkinter.filedialog
     import os
-    import subprocess
     from fillpdf import fillpdfs as pdf
     try:
         import PyPDF2
     except:
-        print("installing PyPDF2")
-        os.system("pip install PyPDF2")
+        install_module(PyPDF2)
         import PyPDF2
     import sys
-    import threading
 
     main()

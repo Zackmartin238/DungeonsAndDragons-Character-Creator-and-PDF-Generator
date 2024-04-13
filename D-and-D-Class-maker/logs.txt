@@ -14,3 +14,9 @@ Temp file Already Exists
 Wrote changes to temp file 
 [2024-04-11 12:19:10.393218] Welcome to the Ultimate D&D Character creator. We've been initialized, and everything has been imported without error. 
 Temp file Already Exists 
+[2024-04-13 10:07:55.504132] Welcome to the Ultimate D&D Character creator. We've been initialized, and everything has been imported without error. 
+Temp file Already Exists 
+Tkinter initialized 
+[2024-04-13 10:10:25.697420] Welcome to the Ultimate D&D Character creator. We've been initialized, and everything has been imported without error. 
+Temp file Already Exists 
+Tkinter initialized 
