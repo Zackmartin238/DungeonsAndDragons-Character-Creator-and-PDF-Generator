@@ -1081,7 +1081,8 @@ def printscores():
     CHA_message = Label(frameRESULTS, text=CHA_content)
     CHA_message.pack(side="top", padx="10", anchor="n")
 
-    savedFileLocation = Label(frameRESULTS, text=f"Your character's file was save to:")
+    #Jonah, here. Fixed a minor typo here. It was kind of bugging me 
+    savedFileLocation = Label(frameRESULTS, text=f"Your character's file was saved to:")
     savedFileLocation.pack(side="top", padx="20", pady="20", anchor="center" )
     fileLocationSaved=Label(frameRESULTS, text=pathToCurrent)
     fileLocationSaved.pack(side="top", padx="20", pady="20", anchor="center" )
