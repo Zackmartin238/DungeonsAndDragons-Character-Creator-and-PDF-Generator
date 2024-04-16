@@ -24,25 +24,22 @@ def start_to_make_new_character():
         main_window.withdraw()
 
         # Determine which Python command to use
-        python_command = "python3" if subprocess.run(["which", "python3"], capture_output=True, text=True).stdout.strip() else "python"
+        python_command = sys.executable
 
-        check = subprocess.run([python_command, createNewCharacterFileLocation], capture_output=True, text=True)
-        check
+        os.system(python_command+" "+createNewCharacterFileLocation)
     except FileNotFoundError:
+    
         print("Script not found")
+    
         # Handle the case where the script is not found
+    except Exception as e:
+        print("We ran into a strange bug... "+e)
     finally:
         main_window.deiconify()
 
 
 
         
-
-def existing_character():
-    try: 
-        os.system()
-    except:
-        None
 
 def exit_program():
     main_window.withdraw()
@@ -69,18 +66,16 @@ def edit_existing():
         path = os.getcwd()
 
         createNewCharacterFileLocation = os.path.join(path, "editExistingCharacter.py")
-        main_window.withdraw()
-
         # Determine which Python command to use
-        python_command = "python3" if subprocess.run(["which", "python3"], capture_output=True, text=True).stdout.strip() else "python"
-
-        check = subprocess.run([python_command, createNewCharacterFileLocation], capture_output=True, text=True)
-        check
-    except FileNotFoundError:
-        print("Script not found")
-        # Handle the case where the script is not found
+        python_command = sys.executable
+        main_window.withdraw()
+        os.system(python_command+" "+createNewCharacterFileLocation)
+    except Exception as e:
+        print("An error occurred:", e)
     finally:
         main_window.deiconify()
+
+        
 
 
 if __name__ =="__main__":

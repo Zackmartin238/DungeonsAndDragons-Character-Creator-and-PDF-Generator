@@ -216,11 +216,8 @@ if __name__ == "__main__":
     import tkinter.filedialog
     import os
     from fillpdf import fillpdfs as pdf
-    try:
-        import PyPDF2
-    except:
-        install_module(PyPDF2)
-        import PyPDF2
     import sys
-
+    import BetterImports
+    BetterImports.Import('PyPDF2')
+    import PyPDF2
     main()
