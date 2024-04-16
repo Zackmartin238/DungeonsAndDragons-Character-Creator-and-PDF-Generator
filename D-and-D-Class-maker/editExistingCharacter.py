@@ -7,44 +7,51 @@ def reset():
     main()
 
 def select_file():
-    global FileSelectButton
-    FileSelectButton.destroy()
+    try:
+        global FileSelectButton
+        FileSelectButton.destroy()
 
-    FileSelectButton = Button(topframe, text="Edit New File", command=reset)
-    FileSelectButton.pack(in_=topframe, side=LEFT)
-    path = os.path.dirname(os.path.realpath(__file__))
-    global currentFile
-    global fileSelected
-    currentFile = tkinter.filedialog.askopenfilename(
-        parent=mainWindow,
-        initialdir=str(path),
-        title='Choose file',
-        filetypes=[('PDF files', '*.pdf')],
-    )
-    file = open(currentFile, "rb")
-    pdfReader = PyPDF2.PdfReader(file)
+        FileSelectButton = Button(topframe, text="Edit New File", command=reset)
+        FileSelectButton.pack(in_=topframe, side=LEFT)
+        path = os.path.dirname(os.path.realpath(__file__))
+        global currentFile
+        global fileSelected
+        currentFile = tkinter.filedialog.askopenfilename(
+            parent=mainWindow,
+            initialdir=str(path),
+            title='Choose file',
+            filetypes=[('PDF files', '*.pdf')],
+        )
+        file = open(currentFile, "rb")
+        pdfReader = PyPDF2.PdfReader(file)
 
-    # Count the number of pages
-    total_pages = len(pdfReader.pages)
-    x = []
-    for i in range(total_pages):
-        x.append(i + 1)  # Adding 1 to start page numbering from 1 instead of 0
-    global page
-    global able_to_print_char
-    able_to_print_char = True
-    page = StringVar(topframe)
-    page.set('1')
-    setup_scrollable_canvas()
-    view_page(page)
-    viewCharacter(1)
-    pagemenu = OptionMenu(topframe, page, *x, command=viewCharacter)
-    pagemenu.pack(in_=topframe, side=LEFT)
-    if able_to_print_char == True:
-        printButton = Button(topframe, text="Print file to Printer", command=print_using_printer)
-        printButton.pack(in_=topframe, side=LEFT)
-    else:
-        None
-    able_to_print_char = False
+        # Count the number of pages
+        total_pages = len(pdfReader.pages)
+        x = []
+        for i in range(total_pages):
+            x.append(i + 1)  # Adding 1 to start page numbering from 1 instead of 0
+        global page
+        global able_to_print_char
+        able_to_print_char = True
+        page = StringVar(topframe)
+        page.set('1')
+        setup_scrollable_canvas()
+        view_page(page)
+        viewCharacter(1)
+        pagemenu = OptionMenu(topframe, page, *x, command=viewCharacter)
+        pagemenu.pack(in_=topframe, side=LEFT)
+        if able_to_print_char == True:
+            printButton = Button(topframe, text="Print file to Printer", command=print_using_printer)
+            printButton.pack(in_=topframe, side=LEFT)
+        else:
+            None
+        able_to_print_char = False
+    except Exception as e:
+        import random
+        length = len(error_codes_fun)
+        code = random.randint(0, length)-1
+        print(error_codes_fun[code]+" "+str(e))
+        reset()
 
 
 def print_using_printer():
@@ -154,15 +161,21 @@ def save_and_exit():
 
 
 def saveChanges():
-    global changes, entry_vars, currentFile
-    for field, value in changes.items():
-        changes[field] = entry_vars[field].entry_var.get()
-    # Update the changes dictionary with the current values in entry_var
+    try:    
+        global changes, entry_vars, currentFile
+        for field, value in changes.items():
+            changes[field] = entry_vars[field].entry_var.get()
+        # Update the changes dictionary with the current values in entry_var
 
 
-    # Write the updated changes dictionary to the PDF file
-    writeChangesToFile()
-
+        # Write the updated changes dictionary to the PDF file
+        writeChangesToFile()
+    except Exception as e:
+        import random
+        length = len(error_codes_fun)
+        code = random.randint(0, length)-1
+        print(error_codes_fun[code]+" can't save changes till you select a file smh")
+        reset()
 
 
 
@@ -177,6 +190,8 @@ def main():
     global currentFile
     global topframe
     global page
+    global error_codes_fun
+    error_codes_fun = ["nope", "nice try", "really?", "cmon now", "is there something else you should be doing?", "try again", "got it wrong", "go back and try again"]
     global mainWindow
     global changes
     mainWindow = Tk()

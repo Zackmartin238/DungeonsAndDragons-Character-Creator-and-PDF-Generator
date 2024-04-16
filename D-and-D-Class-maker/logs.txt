@@ -23,3 +23,9 @@ Tkinter initialized
 [2024-04-13 10:43:53.812080] Welcome to the Ultimate D&D Character creator. We've been initialized, and everything has been imported without error. 
 Temp file Already Exists 
 Tkinter initialized 
+[2024-04-16 12:47:01.289588] Welcome to the Ultimate D&D Character creator. We've been initialized, and everything has been imported without error. 
+Temp file Already Exists 
+Tkinter initialized 
+[2024-04-16 12:47:06.567876] Welcome to the Ultimate D&D Character creator. We've been initialized, and everything has been imported without error. 
+Temp file Already Exists 
+Tkinter initialized 
